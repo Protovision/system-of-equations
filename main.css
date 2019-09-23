@@ -1,0 +1,24 @@
+body {
+	margin: 0;
+	padding: 1em;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+
+#solution {
+	margin: 1em 0;
+}
+
+input,select {
+	box-sizing: border-box;
+	margin: 0.25em;
+	padding: 0.125em;
+}
+
+input[type="number"] {
+	text-align: right;
+	width: 3em;
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}

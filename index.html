@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>System of Equations</title>
+		<meta name="author" content="Mark Swoope">
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="katex/katex.min.css">
+		<link rel="stylesheet" href="main.css">
+		<script defer src="katex/katex.min.js"></script>
+		<script defer src="main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>System of Equations Calculator</h1>
+		</header>
+		<main>
+			<select id="variableCount">
+				<option value="2">2 variable</option>
+				<option value="3">3 variable</option>
+			</select>
+			<input id="showSteps" name="showSteps" type="checkbox" checked><label for="showSteps">Show steps</label>
+			<div id="equations"></div>
+			<input id="calculate" type="button" value="Calculate">
+			<div id="solution"></div>
+		</main>
+		<footer>
+			<p>Created by Mark Swoope (<a href="mailto:markswoope@outlook.com">markswoope@outlook.com</a>).</p>
+		</footer>
+	</body>
+</html>
