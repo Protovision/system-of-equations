@@ -82,7 +82,7 @@
 					const matrixName = (varName && varName.length > 0 ?
 						'D_' + varName : 'D');
 					return '\\det ' + matrixName + ' \\\\\n' +
-						' = {' + matrixName + '}_{1,1} + \\times {' + matrixName + '}_{2,2} - {' + matrixName + '}_{1,2} \\times {' + matrixName + '}_{1,1} \\\\\n' +
+						' = {' + matrixName + '}_{1,1} \\times {' + matrixName + '}_{2,2} - {' + matrixName + '}_{1,2} \\times {' + matrixName + '}_{1,1} \\\\\n' +
 						' = {' + matrix[0] + '} \\times {' + matrix[3] + '} - {' + matrix[1] + '} \\times {' + matrix[2] + '} \\\\\n' +
 						' = {' + matrix[0] * matrix[3] + '} - {' + matrix[1] * matrix[2] + '} \\\\\n' +
 						' = {' + det + '} \\\\[1em]\n';
