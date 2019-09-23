@@ -82,7 +82,7 @@
 					const matrixName = (varName && varName.length > 0 ?
 						'D_' + varName : 'D');
 					return '\\det ' + matrixName + ' \\\\\n' +
-						' = {' + matrixName + '}_{1,1} \\times {' + matrixName + '}_{2,2} - {' + matrixName + '}_{1,2} \\times {' + matrixName + '}_{2,1} \\\\\n' +
+						' = {' + matrixName + '}_{1,1} {' + matrixName + '}_{2,2} - {' + matrixName + '}_{1,2} {' + matrixName + '}_{2,1} \\\\\n' +
 						' = {' + matrix[0] + '} \\times {' + matrix[3] + '} - {' + matrix[1] + '} \\times {' + matrix[2] + '} \\\\\n' +
 						' = {' + matrix[0] * matrix[3] + '} - {' + matrix[1] * matrix[2] + '} \\\\\n' +
 						' = {' + det + '} \\\\[1em]\n';
@@ -99,8 +99,8 @@
 					const generateVarMath = (varDet, det, varValue, varName) => {
 						return varName + ' \\\\\n' +
 							'= \\det D_' + varName + ' \\div \\det D \\\\\n' +
-							'= ' + varDet + ' \\div ' + det + ' \\\\\n' +
-							'= ' + varValue;
+							'= {' + varDet + '} \\div {' + det + '} \\\\\n' +
+							'= {' + varValue + '}';
 					}
 					appendMathToSolution(
 						generateVarMath(xDet, det, x, 'x') + ' \\\\[1em]\n' +
@@ -157,11 +157,11 @@
 						'D_' + varName : 'D');
 					return '\\det ' + matrixName + ' \\\\\n' +
 						' = {' + matrixName + '}_{1, 1}({' + matrixName + '}_{2,2} {' + matrixName + '}_{3,3} - {' + matrixName + '}_{2,3} {' + matrixName + '}_{3,2}) - {' + matrixName + '}_{1,2}({' + matrixName + '}_{2,1} {' + matrixName + '}_{3,3} - {' + matrixName + '}_{2,3} {' + matrixName + '}_{3,1}) + {' + matrixName + '}_{1,3}({' + matrixName + '}_{2,1} {' + matrixName + '}_{3,2} - {' + matrixName + '}_{2,2} {' + matrixName + '}_{3,1}) + \\\\\n' +
-						' = ' + matrix[0] + '(' + matrix[4] + ' \\times ' + matrix[8] + ' - ' + matrix[5] + ' \\times ' + matrix[7] + ') - ' + matrix[1] + '(' + matrix[3] + ' \\times ' + matrix[8] + ' - ' + matrix[5] + ' \\times ' + matrix[6] + ') + ' + matrix[2] + '(' + matrix[3] + ' \\times ' + matrix[7] + ' - ' + matrix[4] + ' \\times ' + matrix[6] + ') \\\\\n' +
-						' = ' + matrix[0] + '(' + (matrix[4] * matrix[8]) + ' - ' + (matrix[5] * matrix[7]) + ') - ' + matrix[1] + '(' + (matrix[3] * matrix[8]) + ' - ' + (matrix[5] * matrix[6]) + ') + ' + matrix[2] + '(' + (matrix[3] * matrix[7]) + ' - ' + (matrix[4] * matrix[6]) + ') \\\\\n' +
-						' = ' + matrix[0] + '(' + ((matrix[4] * matrix[8]) - (matrix[5] * matrix[7])) + ') - ' + matrix[1] + '(' + ((matrix[3] * matrix[8]) - (matrix[5] * matrix[6])) + ') + ' + matrix[2] + '(' + ((matrix[3] * matrix[7]) - (matrix[4] * matrix[6])) + ') \\\\\n' +
-						' = ' + (matrix[0] * ((matrix[4] * matrix[8]) - (matrix[5] * matrix[7]))) + ' - ' + (matrix[1] * ((matrix[3] * matrix[8]) - (matrix[5] * matrix[6]))) + ' + ' + (matrix[2] * ((matrix[3] * matrix[7]) - matrix[4] * matrix[6])) + ' \\\\\n' +
-						' = ' + det + ' \\\\[1em]\n';
+						' = {' + matrix[0] + '}({' + matrix[4] + '} \\times {' + matrix[8] + '} - {' + matrix[5] + '} \\times {' + matrix[7] + '}) - {' + matrix[1] + '}({' + matrix[3] + '} \\times {' + matrix[8] + '} - {' + matrix[5] + '} \\times {' + matrix[6] + '}) + {' + matrix[2] + '}({' + matrix[3] + '} \\times {' + matrix[7] + '} - {' + matrix[4] + '} \\times {' + matrix[6] + '}) \\\\\n' +
+						' = {' + matrix[0] + '}({' + (matrix[4] * matrix[8]) + '} - {' + (matrix[5] * matrix[7]) + '}) - {' + matrix[1] + '}({' + (matrix[3] * matrix[8]) + '} - {' + (matrix[5] * matrix[6]) + '}) + {' + matrix[2] + '}({' + (matrix[3] * matrix[7]) + '} - {' + (matrix[4] * matrix[6]) + '}) \\\\\n' +
+						' = {' + matrix[0] + '}({' + ((matrix[4] * matrix[8]) - (matrix[5] * matrix[7])) + '}) - {' + matrix[1] + '}({' + ((matrix[3] * matrix[8]) - (matrix[5] * matrix[6])) + '}) + {' + matrix[2] + '}({' + ((matrix[3] * matrix[7]) - (matrix[4] * matrix[6])) + '}) \\\\\n' +
+						' = {' + (matrix[0] * ((matrix[4] * matrix[8]) - (matrix[5] * matrix[7]))) + '} - {' + (matrix[1] * ((matrix[3] * matrix[8]) - (matrix[5] * matrix[6]))) + '} + {' + (matrix[2] * ((matrix[3] * matrix[7]) - matrix[4] * matrix[6])) + '} \\\\\n' +
+						' = {' + det + '} \\\\[1em]\n';
 				};
 				appendMathToSolution(
 					'D = ' + matrixToMath(coefficients, 3, 3) + ' \\, ' + 
@@ -177,8 +177,8 @@
 					const generateVarMath = (varDet, det, varValue, varName) => {
 						return varName + ' \\\\\n' +
 							'= \\det D_' + varName + ' \\div \\det D \\\\\n' +
-							'= ' + varDet + ' \\div ' + det + ' \\\\\n' +
-							'= ' + varValue;
+							'= {' + varDet + '} \\div {' + det + '} \\\\\n' +
+							'= {' + varValue + '}';
 					}
 					appendMathToSolution(
 						generateVarMath(xDet, det, x, 'x') + ' \\\\[1em]\n' +
