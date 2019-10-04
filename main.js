@@ -196,10 +196,12 @@
 				for (let j = 0; j < n; ++j) {
 					const input = document.createElement('input');
 					input.id = 'coef' + coef++;
+					input.type = 'text';
+					/*
+					 * input type number is basically not supported by any browsers except firefox.
+					 * Why do people think chrome is the best browser? It's not. 
 					input.type = 'number';
-					input.min = '-340282';
-					input.max = '340282';
-					input.step = '0.000001';
+					*/
 					div.appendChild(input);
 					let operator = null;
 					if (j == n - 1) {
@@ -212,7 +214,7 @@
 				}
 				const constantInput = document.createElement('input');
 				constantInput.id = 'const' + (i + 1);
-				constantInput.type = 'number';
+				constantInput.type = 'text'; /*'number';*/
 				div.appendChild(constantInput);
 				div.appendChild(document.createElement('br'));
 			}
