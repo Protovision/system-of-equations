@@ -197,7 +197,9 @@
 					const input = document.createElement('input');
 					input.id = 'coef' + coef++;
 					input.type = 'number';
-					input.step = 'any';
+					input.min = '-340282';
+					input.max = '340282';
+					input.step = '0.000001';
 					div.appendChild(input);
 					let operator = null;
 					if (j == n - 1) {
